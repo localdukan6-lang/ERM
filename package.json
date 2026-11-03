@@ -1,0 +1,31 @@
+{
+  "name": "textile-garments-erp",
+  "version": "0.1.0",
+  "description": "Offline-first Windows desktop ERP starter for textile and garment wholesale",
+  "main": "src/main.js",
+  "author": "Local Business",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-rebuild -f -w better-sqlite3",
+    "dist:win": "electron-builder --win nsis"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.8.1",
+    "bwip-js": "^4.5.1",
+    "exceljs": "^4.4.0"
+  },
+  "devDependencies": {
+    "@electron/rebuild": "^3.7.1",
+    "electron": "^35.1.5",
+    "electron-builder": "^26.0.12"
+  },
+  "build": {
+    "appId": "in.localdukan.textileerp",
+    "productName": "Textile Garments ERP",
+    "directories": { "output": "release" },
+    "files": ["src/**/*", "package.json"],
+    "win": { "target": ["nsis"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true }
+  }
+}
